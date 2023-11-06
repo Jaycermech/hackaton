@@ -42,40 +42,14 @@ function viewResources() {
 }
 
 function displayPie(data) {
-  console.log(data);
-
-  // for (let [key, value] of categories) {
-  //   console.log(key + " = " + value);
-  //   for (var j = 0; j < response.length; j++) {
-  //     if (response[j].description === key) {
-  //       console.log(response[j].description);
-  //       console.log(response[j].amount);
-  //       value += parseFloat(response[j].amount);
-  //       categories.set(key, parseFloat(value.toFixed(2))); // Convert the value to a float with two decimal points
-  //       console.log("am i being run");
-  //     }
-  //   }
-  // }
-
-  // Your existing viewResources function logic here
-  // Obtain the necessary data for the pie chart
-  // For instance, let's say you have an array of expenses
-  // const expensesData = [
-  //   { category: "Utilities", amount: 200 },
-  //   { category: "Groceries", amount: 350 },
-  //   // ... other expense categories and amounts
-  // ];
-
   const expensesData = Array.from(data, ([category, amount]) => ({
     category,
     amount,
   }));
 
-  // Prepare data for the chart
   const categories = expensesData.map((expense) => expense.category);
   const amounts = expensesData.map((expense) => expense.amount);
 
-  // Render the pie chart
   const ctx = document.getElementById("expensesChart").getContext("2d");
   const expensesChart = new Chart(ctx, {
     type: "pie",
@@ -88,11 +62,60 @@ function displayPie(data) {
             "rgba(255, 99, 132, 0.7)", // Color for Utilities
             "rgba(54, 162, 235, 0.7)", // Color for Groceries
             "rgba(54, 162, 135, 0.7)",
+            // Add more colors for other categories if needed
+          ],
+          // Include labels for each section
+          labels: categories,
+        },
+      ],
+    },
+    options: {
+      legend: {
+        display: true,
+        position: "right", // Adjust the position as needed
+      },
+    },
+  });
+}
 
+function displayPie(data) {
+  const expensesData = Array.from(data, ([category, amount]) => ({
+    category,
+    amount,
+  }));
+
+  const categories = expensesData.map((expense) => expense.category);
+  const amounts = expensesData.map((expense) => expense.amount);
+
+  const ctx = document.getElementById("expensesChart").getContext("2d");
+  const expensesChart = new Chart(ctx, {
+    type: "doughnut",
+    data: {
+      labels: categories,
+      datasets: [
+        {
+          data: amounts,
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.7)", // Color for Utilities
+            "rgba(54, 162, 235, 0.7)", // Color for Groceries
+            "rgba(54, 162, 135, 0.7)",
             // Add more colors for other categories if needed
           ],
         },
       ],
+    },
+    options: {
+      plugins: {
+        datalabels: {
+          // color: "#fff", // Label text color
+          // anchor: "end", // Label position, 'end' will display the label outside the segment
+          // align: "start", // Label alignment
+          formatter: (amounts) => {
+            console.log(amounts);
+            return amounts + "%"; // Display category as label
+          },
+        },
+      },
     },
   });
 }
