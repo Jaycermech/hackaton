@@ -6,20 +6,63 @@ function viewResources() {
   request.onload = function () {
     response = JSON.parse(request.responseText);
     var html = "";
-    for (var i = 0; i < response.length; i++) {
+
+    // var description_dict = new Object()
+
+    // var dict = {}
+
+    var categories = new Map();
+
+    for (var b = 0; b < response.length; b++) {
+      if (!categories.has(response[b].description))
+        categories.set(response[b].description, 0);
+    }
+
+    console.log(categories);
+
+    // for (let [key, value] of categories) {
+    //   console.log(key + " = " + value);
+    //   for (var j = 0; j < response.length; j++) {
+    //     if (response[j].description == key) {
+    //       console.log(response[j].description);
+    //       console.log(response[j].amount);
+    //       categories.set(key, (value += parseFloat(response[j].amount)));
+    //       console.log("am i being run");
+    //     }
+    //   }
+    // }
+
+    for (let [key, value] of categories) {
+      console.log(key + " = " + value);
+      for (var j = 0; j < response.length; j++) {
+        if (response[j].description === key) {
+          console.log(response[j].description);
+          console.log(response[j].amount);
+          value += parseFloat(response[j].amount);
+          categories.set(key, parseFloat(value.toFixed(2))); // Convert the value to a float with two decimal points
+          console.log("am i being run");
+        }
+      }
+    }
+    
+
+    
+
+    console.log(categories);
+
+    for (let [key, value] of categories) {
       html +=
         "<tr>" +
+        // "<td>" +
+        // (i + 1) +
+        // "</td>" +
         "<td>" +
-        (i + 1) +
+        key +
         "</td>" +
         "<td>" +
-        response[i].description +
+        value +
         "</td>" +
-        "<td>" +
-        response[i].amount +
-        "</td>" +
-        "</td>" +
-        "</tr>";
+        "</td>";
     }
     document.getElementById("tableContent").innerHTML = html;
   };
