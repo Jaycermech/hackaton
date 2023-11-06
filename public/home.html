@@ -13,27 +13,34 @@
     />
     <script src="js/home.js"></script>
 
-    <!-- Add this in the head section of your HTML file
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        $(".dropdown-item").on("click", function () {
-          var selectedValue = $(this).attr("value");
-          $(".dropdown-toggle").text(selectedValue);
-        });
-      });
-    </script> -->
-
     <link rel="stylesheet" href="css/style.css" />
   </head>
+
+  <header>
+    <div class="overlay">
+      <h1>Welcome to monthly expense tracker</h1>
+      <p>Created for OCBC hackaton by Jovan, Lebon and Justin</p>
+      <br />
+    </div>
+  </header>
+
   <body onload="viewResources()">
     <div class="container mt-5">
-      <div class="row justify-content-center">
-        <p>Welcome to monthly expense tracker</p>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-md-10"></div>
-        <div class="col-md-2">
+      <div class="row justify-content-start"></div>
+      <div class="row justify-content-start">
+        <div class="col-md-12">
+          <table class="table table-striped table-striped-custom">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Amount</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="tableContent"></tbody>
+          </table>
+        </div>
+        <div class="col-md-2 mt-2">
           <button
             type="button"
             class="btn btn-primary"
@@ -44,24 +51,7 @@
           </button>
         </div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-md-12">
-          <table class="table table-striped table-striped-custom">
-            <thead>
-              <tr>
-                <!-- <th>ID</th> -->
-                <th>Description</th>
-                <th>Amount</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="tableContent"></tbody>
-          </table>
-        </div>
-      </div>
     </div>
-
-    <!-- Make sure you have included necessary Bootstrap CSS and JS files -->
 
     <div
       class="modal fade"
@@ -86,32 +76,6 @@
           </div>
           <div class="modal-body">
             <form>
-              <!-- <div class="dropdown">
-                <button
-                  class="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  id="dropdownMenuButton"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Add Amenities
-                </button>
-                <div
-                  class="dropdown-menu"
-                  aria-labelledby="dropdownMenuButton"
-                  id="description"
-                >
-                  <a class="dropdown-item" href="#" value="Utilities"
-                    >Utilities</a
-                  >
-                  <a class="dropdown-item" href="#" value="Groceries"
-                    >Groceries</a
-                  >
-                  <a class="dropdown-item" href="#" value="Others">Others</a>
-                </div>
-              </div> -->
-
               <label for="Category">Choose Ammenity Type</label>
               <div class="input-group mb-3">
                 <select class="custom-select" id="ammenity_dropdown">

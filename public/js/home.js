@@ -7,10 +7,6 @@ function viewResources() {
     response = JSON.parse(request.responseText);
     var html = "";
 
-    // var description_dict = new Object()
-
-    // var dict = {}
-
     var categories = new Map();
 
     for (var b = 0; b < response.length; b++) {
@@ -19,18 +15,6 @@ function viewResources() {
     }
 
     console.log(categories);
-
-    // for (let [key, value] of categories) {
-    //   console.log(key + " = " + value);
-    //   for (var j = 0; j < response.length; j++) {
-    //     if (response[j].description == key) {
-    //       console.log(response[j].description);
-    //       console.log(response[j].amount);
-    //       categories.set(key, (value += parseFloat(response[j].amount)));
-    //       console.log("am i being run");
-    //     }
-    //   }
-    // }
 
     for (let [key, value] of categories) {
       console.log(key + " = " + value);
@@ -44,25 +28,12 @@ function viewResources() {
         }
       }
     }
-    
-
-    
 
     console.log(categories);
 
     for (let [key, value] of categories) {
       html +=
-        "<tr>" +
-        // "<td>" +
-        // (i + 1) +
-        // "</td>" +
-        "<td>" +
-        key +
-        "</td>" +
-        "<td>" +
-        value +
-        "</td>" +
-        "</td>";
+        "<tr>" + "<td>" + key + "</td>" + "<td>" + value + "</td>" + "</td>";
     }
     document.getElementById("tableContent").innerHTML = html;
   };
