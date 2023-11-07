@@ -7,7 +7,7 @@ async function viewResources(req, res) {
     return res.status(201).json(allResources);
   } catch (error) {
     return res.status(500).json({ message: error.message });
-  } 
+  }
 }
 
 async function addResource(req, res) {

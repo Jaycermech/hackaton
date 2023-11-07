@@ -51,6 +51,7 @@
                 type="button"
                 class="btn btn-success longer-button"
                 data-toggle="modal"
+                id="addExpensebtn1"
                 data-target="#resourceModal"
               >
                 Add Expense
@@ -95,7 +96,7 @@
                 <select class="custom-select" id="ammenity_dropdown">
                   <option value="Utilities">Utilities</option>
                   <option value="Groceries">Groceries</option>
-                  <option value="Food">Food</option>
+                  <option value="Food" id="Food">Food</option>
                   <option value="Electronic">Electronics</option>
                   <option value="Others">Others</option>
                 </select>
@@ -106,7 +107,7 @@
                 <input
                   type="number"
                   class="form-control"
-                  id="amount"
+                  id="amount_input_modal"
                   placeholder="Enter Amount"
                 />
               </div>
@@ -125,7 +126,9 @@
             <button
               type="button"
               class="btn btn-success"
+              id="addExpensebtn2"
               onclick="addResource()"
+              data-dismiss="modal"
             >
               Add Expense
             </button>

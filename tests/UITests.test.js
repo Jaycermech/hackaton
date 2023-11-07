@@ -19,14 +19,76 @@ before(async function () {
   });
 });
 
-describe("Testing Login UI", function () {
+describe("Testing Open Webpage UI", function () {
   this.timeout(100000); // Set timeout as 10 seconds
   it("Should show title:DVOPS - Resource Management Web App", async () => {
     await driver.get("http://localhost:5050/home.html");
+
+    console.log("am i being tun");
+
     const title = await driver.getTitle(); // Get the title of the web page
     expect(title).to.equal("DVOPS - Resource Management Web App"); // Assert that title matches "Swag Labs"
+
+    const addExpensebtn1 = await driver.findElement(By.id("addExpensebtn1"));
+    await addExpensebtn1.click();
+
+    //select amount input box and type amount
+    // const amount_input_modal = await driver.findElement(
+    //   By.id("amount_input_modal")
+    // );
+    // console.log("ni gn ma");
+    // console.log(document.getElementById("amount_input_modal"));
+    // await amount_input_modal.click();
+    // await amount_input_modal.sendKeys("300");
+
+    // opens ammenity drop down button
+    const ammenity_dropdown = await driver.findElement(
+      By.id("ammenity_dropdown")
+    );
+    await driver.wait(until.elementIsVisible(ammenity_dropdown), 5000);
+    await ammenity_dropdown.click();
+
+    // opens ammenity drop down and choose food option
+    const ammenity_dropdown_food = await driver.findElement(By.id("Food"));
+    await driver.wait(until.elementIsVisible(ammenity_dropdown_food), 5000);
+    await ammenity_dropdown_food.click();
+    await ammenity_dropdown.click();
+
+    //select amount input box and type amount
+    const amount_input_modal = await driver.findElement(
+      By.id("amount_input_modal")
+    );
+    // console.log("ni gn ma");
+    // console.log(document.getElementById("amount_input_modal"));
+    await amount_input_modal.click();
+    await amount_input_modal.sendKeys("300");
+
+    // console.log("ni gn ma 2");
+    // const resource_modal = await driver.findElement(By.id("resourceModal)"));
+    // resource_modal.click();
+
+    // Wait for the modal to load
+    const addExpensebtn2 = await driver.findElement(By.id("addExpensebtn2"));
+    await driver.wait(until.elementIsVisible(addExpensebtn2), 5000);
+    await addExpensebtn2.click();
   });
 });
+
+// describe("Testing Open Add expense modal", function () {
+//     this.timeout(100000); // Set timeout as 10 seconds
+//     it("Should show title:DVOPS - Resource Management Web App", async () => {
+//       await driver.get("http://localhost:5050/home.html");
+
+//       const title = await driver.getTitle(); // Get the title of the web page
+//       expect(title).to.equal("DVOPS - Resource Management Web App"); // Assert that title matches "Swag Labs"
+
+//       const addExpensebtn = await driver.findElement(By.id("addExpensebtn1"));
+//       await addExpensebtn.click();
+
+//       const addExpensebtn2 = await driver.findElement(By.id("addExpensebtn2"));
+//       await addExpensebtn2.click();
+//     });
+//   });
 
 after(async function () {
   //await driver.quit();

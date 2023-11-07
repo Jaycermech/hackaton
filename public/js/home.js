@@ -168,7 +168,7 @@ function addResource() {
   jsonData.description = e.value;
   console.log(jsonData.description);
 
-  jsonData.amount = document.getElementById("amount").value;
+  jsonData.amount = document.getElementById("amount_input_modal").value;
   console.log(jsonData.amount);
 
   // Validation: Check if the fields are empty
@@ -195,6 +195,7 @@ function addResource() {
 
       document.getElementById("amount").value = "";
       window.location.href = "home.html";
+      location.reload();
       // Consider whether 'location.reload()' is necessary here
     } else {
       document.getElementById("message").innerHTML = "Unable to add resource!";
