@@ -86,26 +86,6 @@ function displayPie(data) {
   const categories = expensesData.map((expense) => expense.category);
   const amounts = expensesData.map((expense) => expense.amount);
 
-  // Function to generate diverse colors
-  const generateDiverseColors = (numberOfColors) => {
-    const colors = [];
-    const goldenRatioConjugate = 0.618033988749895;
-    const hueValues = [];
-    for (let i = 0; i < numberOfColors; i++) {
-      hueValues.push((i * goldenRatioConjugate) % 1);
-    }
-    for (let hue of hueValues) {
-      const color = `hsl(${Math.floor(hue * 360)}, 70%, 60%)`;
-      colors.push(color);
-    }
-    return colors;
-  };
-
-  const numberOfCategories = categories.length;
-
-  // Generate diverse colors for each category
-  const backgroundColors = generateDiverseColors(numberOfCategories);
-
   const ctx = document.getElementById("expensesChart").getContext("2d");
   const expensesChart = new Chart(ctx, {
     type: "doughnut",
@@ -114,19 +94,26 @@ function displayPie(data) {
       datasets: [
         {
           data: amounts,
-          backgroundColor: backgroundColors,
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.7)", // Color for Utilities
+            "rgba(54, 162, 235, 0.7)", // Color for Groceries
+            "rgba(54, 162, 135, 0.7)",
+            "rgba(54, 255, 255, 0.7)",
+            "rgba(255, 162, 255, 0.7)",
+            // Add more colors for other categories if needed
+          ],
         },
       ],
     },
     options: {
       plugins: {
         datalabels: {
-          color: "#fff", // Label text color
-          anchor: "end", // Label position, 'end' will display the label outside the segment
-          align: "start", // Label alignment
-          formatter: (value, ctx) => {
-            let label = ctx.chart.data.labels[ctx.dataIndex];
-            return label + ": " + value + "%"; // Display category and value as label
+          // color: "#fff", // Label text color
+          // anchor: "end", // Label position, 'end' will display the label outside the segment
+          // align: "start", // Label alignment
+          formatter: (amounts) => {
+            console.log(amounts);
+            return amounts + "%"; // Display category as label
           },
         },
       },
