@@ -63,3 +63,21 @@ button:hover{
   }
   
 
+  .modal-header {
+	background: linear-gradient(to right, #d795eb, #f1ada9); /* Replace these colors with your desired gradient colors */
+	color: white; /* Text color */
+  }
+  
+
+  .btn {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	color: #fff; /* Text color */
+	background-image: linear-gradient(to right, #d795eb, #f1ada9); /* Change these colors as needed */
+  }
+  
+  .btn.btn-success {
+	/* Additional styles specific to the success class if needed */
+  }
+  
