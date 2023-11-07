@@ -172,7 +172,12 @@ function addResource() {
   console.log(jsonData.amount);
 
   // Validation: Check if the fields are empty
-  if (jsonData.description === "" || jsonData.amount === "") {
+  if (
+    jsonData.description === "" ||
+    jsonData.amount === "" ||
+    jsonData.amount <= 0 ||
+    isNaN(jsonData.amount)
+  ) {
     document.getElementById("message").innerHTML = "All fields are required!";
     document.getElementById("message").setAttribute("class", "text-danger");
     return;
