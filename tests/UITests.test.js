@@ -3,7 +3,6 @@ const { Builder, By, Key, until } = require("selenium-webdriver");
 const { describe, it } = require("mocha");
 const { expect } = require("chai");
 
-
 const chrome = require("selenium-webdriver/chrome");
 const chromeOptions = new chrome.Options();
 chromeOptions.addArguments("--headless");
@@ -79,10 +78,6 @@ describe("Testing Open Webpage UI", function () {
   });
 });
 
-
-
-
-
 // describe("Testing Open Webpage UI - Main Screen", function () {
 //   this.timeout(100000); // Set timeout as 10 seconds
 //   it("Should show title: DVOPS - Resource Management Web App", async () => {
@@ -128,7 +123,6 @@ describe("Testing Open Webpage UI", function () {
 //   //   server.destroy();
 //   // }, 5000);
 // });
-
 
 after(async function () {
   await driver.quit();
