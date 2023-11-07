@@ -1,0 +1,8 @@
+version: '3'
+services:
+  build-rms:
+    build:
+      context: .
+      dockerfile: Dockerfile 
+    image: jaycedocker312a/bank-website-img
+    container_name: bank-app-container

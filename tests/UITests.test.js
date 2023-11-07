@@ -5,8 +5,11 @@ const { expect } = require("chai");
 
 const chrome = require("selenium-webdriver/chrome");
 const chromeOptions = new chrome.Options();
-chromeOptions.addArguments('--headless');
-const driver = new Builder().forBrowser('chrome').setChromeOptions(chromeOptions).build();
+chromeOptions.addArguments("--headless");
+const driver = new Builder()
+  .forBrowser("chrome")
+  .setChromeOptions(chromeOptions)
+  .build();
 
 // const driver = new Builder().forBrowser("chrome").build();
 
@@ -20,7 +23,7 @@ const driver = new Builder().forBrowser('chrome').setChromeOptions(chromeOptions
 //     .build();
 
 // var server;
- 
+
 before(async function () {
   server = await new Promise((resolve) => {
     server = app.listen(0, "localhost", () => {
@@ -32,7 +35,7 @@ before(async function () {
 // describe("Testing Open Webpage UI", function () {
 //   this.timeout(100000); // Set timeout as 10 seconds
 //   it("Should show title:DVOPS - Resource Management Web App", async () => {
-//     await driver.get("http://localhost:5050/home.html");
+//     await driver.get("http://localhost:" + server.address().port);
 
 //     console.log("am i being tun");
 
@@ -75,10 +78,15 @@ before(async function () {
 //   });
 // });
 
+
+
+
+
 describe("Testing Open Webpage UI - Main Screen", function () {
   this.timeout(100000); // Set timeout as 10 seconds
   it("Should show title: DVOPS - Resource Management Web App", async () => {
-    await driver.get("http://localhost:6060/home.html");
+    await driver.get("http://localhost:" + server.address().port);
+
     const title = await driver.getTitle(); // Get the title of the web page
     expect(title).to.equal("DVOPS - Resource Management Web App"); // Assert that title matches "DVOPS - Resource Management Web App"
   });
@@ -89,7 +97,7 @@ describe("Testing Add Expense and Dropdown Selection", function () {
   it("Should open dropdown and select Food option after clicking addExpensebtn1", async () => {
     const addExpensebtn1 = await driver.findElement(By.id("addExpensebtn1"));
     await addExpensebtn1.click();
- 
+
     const ammenity_dropdown = await driver.findElement(
       By.id("ammenity_dropdown")
     );
@@ -115,4 +123,7 @@ describe("Testing Add Expense and Dropdown Selection", function () {
 after(async function () {
   await driver.quit();
   await server.close();
+  setTimeout(() => {
+    server.destroy();
+  }, 5000);
 });
