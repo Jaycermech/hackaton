@@ -77,7 +77,5 @@ button:hover{
 	background-image: linear-gradient(to right, #d795eb, #f1ada9); /* Change these colors as needed */
   }
   
-  .btn.btn-success {
-	/* Additional styles specific to the success class if needed */
-  }
+  
   
