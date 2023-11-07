@@ -1,12 +1,1 @@
-[
-  { "description": "Food", "amount": "300", "id": "1699346497084015" },
-  { "description": "Food", "amount": "300", "id": "1699346514631114" },
-  { "description": "Food", "amount": "300", "id": "1699346540500229" },
-  { "description": "Food", "amount": "300", "id": "1699346556126848" },
-  { "description": "Food", "amount": "300", "id": "1699346571042012" },
-  { "description": "Food", "amount": "300", "id": "1699346585015413" },
-  { "description": "Food", "amount": "300", "id": "1699346601785151" },
-  { "description": "Food", "amount": "10000", "id": "1699346608138113" },
-  { "description": "Utilities", "amount": "11111", "id": "1699346615584944" },
-  { "description": "Food", "amount": "300", "id": "1699346633841190" }
-]
+[{"description":"Food","amount":"300","id":"1699352495026267"},{"description":"Food","amount":"300","id":"1699352903167528"},{"description":"Food","amount":"300","id":"1699352922934923"},{"description":"Food","amount":"300","id":"1699353106190628"}]

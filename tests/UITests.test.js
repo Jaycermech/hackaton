@@ -3,15 +3,16 @@ const { Builder, By, Key, until } = require("selenium-webdriver");
 const { describe, it } = require("mocha");
 const { expect } = require("chai");
 
-// const chrome = require("selenium-webdriver/chrome");
-// const chromeOptions = new chrome.Options();
-// chromeOptions.addArguments("--headless");
-// const driver = new Builder()
-//   .forBrowser("chrome")
-//   .setChromeOptions(chromeOptions)
-//   .build();
 
-const driver = new Builder().forBrowser("chrome").build();
+const chrome = require("selenium-webdriver/chrome");
+const chromeOptions = new chrome.Options();
+chromeOptions.addArguments("--headless");
+const driver = new Builder()
+  .forBrowser("chrome")
+  .setChromeOptions(chromeOptions)
+  .build();
+
+// const driver = new Builder().forBrowser("chrome").build();
 
 // const driver = new Builder().forBrowser("firefox").build();
 
@@ -120,10 +121,16 @@ describe("Testing Open Webpage UI", function () {
 //   });
 // });
 
+// after(async function () {
+//   await driver.quit();
+//   // await server.close();
+//   // setTimeout(() => {
+//   //   server.destroy();
+//   // }, 5000);
+// });
+
+
 after(async function () {
-  // await driver.quit();
-  // await server.close();
-  // setTimeout(() => {
-  //   server.destroy();
-  // }, 5000);
+  await driver.quit();
+  process.exit(0); // Exit with success code
 });
