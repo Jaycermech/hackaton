@@ -20,16 +20,12 @@ function viewResources() {
       console.log(key + " = " + value);
       for (var j = 0; j < response.length; j++) {
         if (response[j].description === key) {
-          console.log(response[j].description);
-          console.log(response[j].amount);
           value += parseFloat(response[j].amount);
           categories.set(key, parseFloat(value.toFixed(2))); // Convert the value to a float with two decimal points
-          console.log("am i being run");
         }
       }
     }
 
-    console.log(categories);
     displayPie(categories);
 
     for (let [key, value] of categories) {
@@ -193,8 +189,8 @@ function addResource() {
       document.getElementById("message").innerHTML =
         "Added Resource: " + jsonData.description + "!";
 
-      document.getElementById("amount").value = "";
-      window.location.href = "home.html";
+      document.getElementById("amount_input_modal").value = "";
+      // window.location.href = "home.html";
       location.reload();
       // Consider whether 'location.reload()' is necessary here
     } else {
