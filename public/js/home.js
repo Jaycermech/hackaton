@@ -200,5 +200,5 @@ function addResource() {
     }
   };
   request.send(JSON.stringify(jsonData));
-  console.log(JSON.stringify(jsonData));
+  //console.log(JSON.stringify(jsonData));
 }
