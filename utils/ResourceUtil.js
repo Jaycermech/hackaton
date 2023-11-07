@@ -11,6 +11,8 @@ async function viewResources(req, res) {
 }
 
 async function addResource(req, res) {
+  console.log(req);
+  console.log(res);
   try {
     const description = req.body.description;
     const amount = req.body.amount;
@@ -28,4 +30,3 @@ module.exports = {
   viewResources,
   addResource,
 };
- 

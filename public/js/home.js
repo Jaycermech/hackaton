@@ -185,6 +185,7 @@ function addResource() {
   request.onload = function () {
     response = JSON.parse(request.responseText);
     console.log(response);
+    console.log(response);
     if (response.message === undefined) {
       document.getElementById("message").innerHTML =
         "Added Resource: " + jsonData.description + "!";
@@ -199,4 +200,5 @@ function addResource() {
     }
   };
   request.send(JSON.stringify(jsonData));
+  console.log(JSON.stringify(jsonData));
 }
