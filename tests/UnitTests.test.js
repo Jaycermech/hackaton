@@ -11,8 +11,12 @@ describe("Testing addResource Function", () => {
     orgContent = JSON.parse(orgContent);
   });
 
+  // afterEach(async () => {
+  //   await fs.writeFile(resourcesFilePath, JSON.stringify(orgContent), "utf8");
+  // });
+
   afterEach(async () => {
-    await fs.writeFile(resourcesFilePath, JSON.stringify(orgContent), "utf8");
+    if (orgContent  != "" ) await fs.writeFile(resourcesFilePath, JSON.stringify(orgContent), "utf8");
   });
 
   it("Should add a new resource successfully", async () => {
