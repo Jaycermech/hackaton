@@ -6,3 +6,4 @@ services:
       dockerfile: Dockerfile 
     image: jaycedocker312/bank-website-img:v1
     container_name: bank-app-container
+ 
