@@ -4,6 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile 
-    image: jaycedocker312/bank-website-img:v18
+    image: jaycedocker312/bank-website-img:v19
     container_name: bank-app-container
  
