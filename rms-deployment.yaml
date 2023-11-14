@@ -14,6 +14,6 @@ spec: # defines the desired state of the Deployment.
     spec: # specifies the container(s) to run
       containers:
         - name: bank-website-img
-          image: jaycedocker312/bank-website-img:v10
+          image: jaycedocker312/bank-website-img:v12
           ports:
             - containerPort: 6060 # specifies the port that the application listens on
